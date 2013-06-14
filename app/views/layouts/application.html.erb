@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ipp="" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Cobot Invoices to Quickbooks</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/javascript/html5shiv.js"></script>
+    <![endif]-->
+    <%= stylesheet_link_tag :bootstrap, :app %>
+  </head>
+<body>
+
+
+  <div id="fb-root"></div>
+  <div class="container-narrow container">
+
+    <div class="masthead">
+      <ul class="nav nav-pills pull-right">
+        <li><a href="/">Home</a></li>
+        <li><a href="http://apps.cobot.me">Cobot App Directory</a></li>
+      </ul>
+      <h3 class="muted">Cobot Invoices to Quickbooks</h3>
+    </div>
+
+    <hr>
+    <%= yield %>
+
+  </div>
+  <div class="container-narrow container footer-content">
+    <div class="row">
+      <div class="span6">
+        <p>&copy; <%= Date.today.year %> <a href="http://cobot.me">cobot.me</a></p>
+      </div>
+      <div class="span6">
+      </div>
+    </div>
+  </div>
+
+
+
+  <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js', 'https://appcenter.intuit.com/Content/IA/intuit.ipp.anywhere.js', 'mustache', 'application', 'char-set' => 'utf-8' %>
+  <script type="text/javascript" charset="utf-8">
+    <%= yield_content :js %>
+  </script>
+</body>
+</html>

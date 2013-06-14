@@ -1,0 +1,52 @@
+<div id="spaceTemplate" style="display:none">
+  <div class="row">
+    <form class="inline">
+      <div class="span3">
+        {{space_name}}
+      </div>
+      <div class="span4">
+          <input type="text" required="true" class="span4 qb-account-ref" placeholder="QuickBooks Income Account Id"></input>
+      </div>
+      <div class="span2">
+        <a class="add-space-link btn btn-small btn-primary" data-cobot_id="{{space_id}}" data-name="{{space_name}}">Enable</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<% unless current_user.qb_connected? %>
+<p>Please connect your account with quickbooks first</p>
+  <ipp:connectToIntuit></ipp:connectToIntuit>
+  <% content_for :js do %>
+    intuit.ipp.anywhere.setup({
+        menuProxy: 'http://example.com/myapp/BlueDotMenu',
+        grantUrl: '<%= base_url %>/quickbooks/auth'
+    });
+  <% end  %>
+<% end %>
+<% if current_user.qb_connected? %>
+  <p id="text">These are spaces you can connect with quickbooks</p>
+
+  <div id="spaces"></div>
+  <% content_for :js do %>
+    CobotFb.renderSpaces(<%= @spaces_json.html_safe %>, <%= @enabled_spaces_ids.html_safe %>);
+  <% end %>
+  <hr>
+<% end %>
+
+<% if @current_user.spaces.any? %>
+  <p>These are your connected spaces</p>
+<% end %>
+
+<div id="know-spaces">
+  <% @current_user.spaces.each do |space| %>
+  
+  <div class="row">
+    <div class="span9">
+      <%= space.name %>
+    </div>
+  </div>
+  <% end %>  
+</div>
+
+<hr>
