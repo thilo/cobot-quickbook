@@ -9,7 +9,7 @@ module AuthHelpers
   end
 
   def qb_oauth_client(user)
-    oauth_client = OAuth::AccessToken.new(qb_oauth_consumer, user.access_token, user.access_secret)
+    oauth_client = OAuth::AccessToken.new(qb_oauth_consumer, user.qb_token, user.qb_secret)
   end
 
   def oauth_client

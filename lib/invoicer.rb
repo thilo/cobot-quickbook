@@ -1,4 +1,5 @@
 class Invoicer
+  include AuthHelpers
   def self.run
     Space.all.each do |space|
       Invoicer.new.run_one(space)
