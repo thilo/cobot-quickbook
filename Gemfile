@@ -14,7 +14,7 @@ gem 'oauth'
 gem 'erubis'
 gem 'activerecord', :require => "active_record"
 gem 'pg'
-gem 'quickeebooks', path: '/Users/thilo/workspace/quickeebooks'
+gem 'quickeebooks', git: 'git://github.com/cobot/quickeebooks.git'
 
 # Test requirements
 group "test" do

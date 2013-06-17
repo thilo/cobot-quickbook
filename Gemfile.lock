@@ -1,5 +1,6 @@
-PATH
-  remote: /Users/thilo/workspace/quickeebooks
+GIT
+  remote: git://github.com/cobot/quickeebooks.git
+  revision: 133538daf0a9441699cbd1806026e44d348b2b44
   specs:
     quickeebooks (0.1.10)
       activemodel
