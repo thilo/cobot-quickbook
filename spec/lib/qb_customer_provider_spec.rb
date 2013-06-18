@@ -37,6 +37,7 @@ describe QbCustomerProvider do
         ).to_return(body:
           xml_response(:customer, qb_customer_hash)
         )
+
         provider.get('cust',
               name: "joe doe",
               address: "1 broadway",
@@ -45,6 +46,25 @@ describe QbCustomerProvider do
               city: "atlantis",
               country: "ocean",
               state: "AT")
+
+        qb_customer_api.should have_been_requested
+      end
+
+      it "uses the company name as customer name if no name in address" do
+        qb_customer_api = stub_request(:post, /\/resource\/customer\/v2\/.+/,).with(body:
+          %r{<Name>joe inc\.</Name>}
+        ).to_return(body:
+          xml_response(:customer, qb_customer_hash)
+        )
+        provider.get('cust',
+              name: "",
+              address: "1 broadway",
+              company: "joe inc.",
+              post_code: "94153",
+              city: "atlantis",
+              country: "ocean",
+              state: "AT")
+
         qb_customer_api.should have_been_requested
       end
 
