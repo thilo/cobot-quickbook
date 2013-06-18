@@ -9,7 +9,7 @@ describe QbInvoiceBuilder do
       stub_request(:post, /\/resource\/invoice\/v2\/.+/).to_return(body: xml_response(:invoice))
 
       item_provider.should_receive(:get).with("monthly rent")
-      item_provider.should_receive(:get).with("2 time passes")
+      item_provider.should_receive(:get).with("time passes")
 
       builder.build(invoice_hash)
     end
@@ -28,7 +28,7 @@ describe QbInvoiceBuilder do
             }
           ) << "\n" <<
           xml_fragment(:line,
-            desc: '2 time passes',
+            desc: 'time passes',
             amount: "20.0",
             taxable: true,
             item_id: 32,
@@ -98,15 +98,20 @@ describe QbInvoiceBuilder do
       "items" => [
       {
           "amount" => "80.0",
-          "description" => "monthly rent",
+          "description" => "monthly rent for August",
           "quantity" => "2.0",
-          "tax_rate" => "20.0"
+          "tax_rate" => "20.0",
+          "tag" => "membership",
+          "tag_name" => "monthly rent"
+          
       },
       {
           "amount" => "20.0",
           "description" => "2 time passes",
           "quantity" => "2.0",
-          "tax_rate" => "20.0"
+          "tax_rate" => "20.0",
+          "tag" => "passes",
+          "tag_name" => "time passes"
       }
       ],
       "total_amount" => "240.0",

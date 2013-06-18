@@ -10,7 +10,7 @@ describe InvoiceExporter do
   describe "export" do
 
     it "requests invoices for the time frame from cobot api" do
-      cobot_api = stub_request(:get, 'https://co-up.cobot.me/api/invoices?from=2013-02-01&to=2013-02-28').to_return(body: '[]')
+      cobot_api = stub_request(:get, 'https://co-up.cobot.me/api/invoices').with(:query =>  hash_including({from: '2013-02-01', to: '2013-02-28'})).to_return(body: '[]')
       exporter.export(Date.parse('2013-02-01'), Date.parse('2013-02-28'))
       cobot_api.should have_been_requested
     end

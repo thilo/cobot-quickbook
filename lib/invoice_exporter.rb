@@ -19,7 +19,6 @@ class InvoiceExporter
 
   def get_cobot_invoices(start_date, end_date)
     url = "https://#{@space.cobot_id}.cobot.me/api/invoices?from=#{start_date.to_s}&to=#{end_date.to_s}&tags=true"
-    p @cobot_oauth.get(url).body
     JSON.parse(@cobot_oauth.get(url).body, symbolize_names: true)
   end
   
