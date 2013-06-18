@@ -30,7 +30,7 @@ class QbInvoiceBuilder
     inv[:items].each do |item|
        line_item = Quickeebooks::Online::Model::InvoiceLineItem.new
        line_item.item_id = Quickeebooks::Online::Model::Id.new(@line_item_provider.get(item[:tag_name]).qb_id)
-       line_item.desc = item[:tag_name]
+       line_item.desc = item[:description]
        line_item.taxable = item[:tax_rate].to_f > 0
        line_item.amount = item[:amount]
        line_item.quantity = item[:quantity]
