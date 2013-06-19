@@ -20,7 +20,7 @@ describe QbInvoiceBuilder do
         stub_request(:post, /\/resource\/invoice\/v2\/.+/).with(body:
           /#{xml_fragment(:line,
             {
-              desc: 'monthly rent',
+              desc: 'monthly rent for August',
               amount: "80.0",
               taxable: true,
               item_id: 32,
@@ -28,7 +28,7 @@ describe QbInvoiceBuilder do
             }
           ) << "\n" <<
           xml_fragment(:line,
-            desc: 'time passes',
+            desc: '2 time passes',
             amount: "20.0",
             taxable: true,
             item_id: 32,
