@@ -17,6 +17,7 @@ private
   end
 
   def build_qb_object(customer_hash)
+    logger.info 'export new customer from ' << customer_hash.to_s
     customer = Quickeebooks::Online::Model::Customer.new
     address = customer.address = Quickeebooks::Online::Model::Address.new
     customer.name = customer_name(customer_hash)

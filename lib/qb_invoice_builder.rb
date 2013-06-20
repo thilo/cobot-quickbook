@@ -7,6 +7,7 @@ class QbInvoiceBuilder
   end
 
   def build(inv)
+    logger.info 'export new inv from cobot id: ' << inv[:id].to_s
     qb_invoice = Quickeebooks::Online::Model::Invoice.new
     header = qb_invoice.header = Quickeebooks::Online::Model::InvoiceHeader.new
     customer = @customer_provider.get(inv[:membership_id], inv[:address])
