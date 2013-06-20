@@ -2,7 +2,11 @@ class Invoicer
   include AuthHelpers
   def self.run
     Space.all.each do |space|
-      Invoicer.new.run_one(space)
+      begin
+        Invoicer.new.run_one(space)
+      rescue Exception => exception
+         Raven.capture_exception(exception)
+      end
     end
   end
   

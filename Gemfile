@@ -8,6 +8,7 @@ gem 'unicorn'
 gem 'rake'
 gem 'oauth2'
 gem 'oauth'
+gem 'sentry-raven', :require => 'raven'
 
 # Component requirements
 gem 'erubis'

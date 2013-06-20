@@ -5,6 +5,7 @@ PADRINO_ROOT = File.expand_path('../..', __FILE__) unless defined?(PADRINO_ROOT)
 # Load our dependencies
 require 'rubygems' unless defined?(Gem)
 require 'bundler/setup'
+require 'raven'
 Bundler.require(:default, PADRINO_ENV)
 
 ##
@@ -16,6 +17,10 @@ Padrino::Logger::Config[:production] = { :log_level => :error, :stream => :stdou
 # Padrino::Logger::Config[:development] = { :log_level => :devel, :stream => :stdout }
 # Padrino::Logger.log_static = true
 #
+
+Raven.configure do |config|
+  config.dsn = 'https://e4b1141328db4f6f951d570121e1f780:889da53a844d461b9ba7ac76423ada4f@app.getsentry.com/9801'
+end
 
 ##
 # Add your before load hooks here
