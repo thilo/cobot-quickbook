@@ -6,14 +6,14 @@ class QbCustomerProvider
     @space = space
   end
 
-  def get(membership_id, customer_hash)
-     find_customer(membership_id) || create_customer(membership_id, customer_hash)
+  def get(customer_hash)
+     find_customer(customer_hash) || create_customer(customer_hash)
   end
 
 private
 
-  def find_customer(membership_id)
-    space.customers.find_by_cobot_id(membership_id)
+  def find_customer(customer_hash)
+    space.customers.find_by_name(customer_name(customer_hash))
   end
 
   def build_qb_object(customer_hash)
@@ -35,9 +35,9 @@ private
     customer_hash[:name].blank? ? customer_hash[:company] : customer_hash[:name]
   end
 
-  def create_customer(membership_id, customer_hash)
+  def create_customer(customer_hash)
     qb_object = build_qb_object(customer_hash)
-    space.customers.create!(cobot_id: membership_id, qb_id: qb_object.id)
+    space.customers.create!(name: customer_name(customer_hash), qb_id: qb_object.id)
   end
 
 end

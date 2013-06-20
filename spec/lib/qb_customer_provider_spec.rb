@@ -8,12 +8,12 @@ describe QbCustomerProvider do
     context "customer is in database" do
       before(:each) do
         @customer = Customer.new(cobot_id: 'cust')
-        space.customers.stub(find_by_cobot_id: @customer)
+        space.customers.stub(find_by_name: @customer)
       end
 
       it "returns a customer for the " do
         @customer.qb_id = 12
-        customer = provider.get("cust", {name: 'joe doe'})
+        customer = provider.get({name: 'joe doe'})
         customer.should == @customer
       end
     end
@@ -38,8 +38,7 @@ describe QbCustomerProvider do
           xml_response(:customer, qb_customer_hash)
         )
 
-        provider.get('cust',
-              name: "joe doe",
+        provider.get(name: "joe doe",
               address: "1 broadway",
               company: "joe inc.",
               post_code: "94153",
@@ -56,8 +55,7 @@ describe QbCustomerProvider do
         ).to_return(body:
           xml_response(:customer, qb_customer_hash)
         )
-        provider.get('cust',
-              name: "",
+        provider.get(name: "",
               address: "1 broadway",
               company: "joe inc.",
               post_code: "94153",
@@ -68,17 +66,17 @@ describe QbCustomerProvider do
         qb_customer_api.should have_been_requested
       end
 
-      it "stores the qb_id and cobot_id in the db" do
+      it "stores the qb_id and name in the db" do
         qb_customer_hash[:id] = 13
         stub_request(:post, /\/resource\/customer\/v2\/.+/,).to_return(body:
           xml_response(:customer, qb_customer_hash)
         )
 
-        provider.get('cust', {name: 'stub_hash'})
+        provider.get({name: 'stub_hash'})
 
         customer = space.customers.first
         customer.qb_id.should == 13
-        customer.cobot_id.should == 'cust'
+        customer.name.should == 'stub_hash'
         customer.should be_persisted
       end
     end
