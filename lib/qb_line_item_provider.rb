@@ -15,9 +15,9 @@ class QbLineItemProvider
   end
   
   def build_qb_object(description)
-    logger.info 'export new item for tag: ' << description
+    logger.info 'export new item for tag: ' << description.to_s
     item = Quickeebooks::Online::Model::Item.new
-    item.name = description
+    item.name = description.to_s
     item.taxable =  true
     item.account_reference = Quickeebooks::Online::Model::AccountReference.new(space.qb_account_ref)
     qb_service.create(item)
