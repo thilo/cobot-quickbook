@@ -27,6 +27,7 @@ class QbInvoiceBuilder
     header.tax_amount = inv[:tax_amounts].values.first #QB only supports one tax rate
     header.total_amount = inv[:total_amount]
     header.sub_total_amount = inv[:total_amount_without_taxes]
+    header.txn_date = inv[:created_at]
 
     inv[:items].each do |item|
        line_item = Quickeebooks::Online::Model::InvoiceLineItem.new
