@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+#ruby '2.0.0'
 
 # Server requirements (defaults to WEBrick)
 gem 'unicorn'
@@ -8,7 +8,7 @@ gem 'unicorn'
 gem 'rake'
 gem 'oauth2'
 gem 'oauth'
-gem 'sentry-raven', :require => 'raven'
+gem 'sentry-raven'
 
 # Component requirements
 gem 'erubis'
