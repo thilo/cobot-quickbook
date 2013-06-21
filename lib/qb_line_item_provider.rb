@@ -7,7 +7,8 @@ class QbLineItemProvider
   end
   
   def get(description)
-     find_line_item(description) || create_line_item(description)
+    description = "manual charge" if description.blank?
+    find_line_item(description) || create_line_item(description)
   end
   
   def find_line_item(description)
