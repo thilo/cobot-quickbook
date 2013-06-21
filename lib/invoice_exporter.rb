@@ -24,7 +24,7 @@ class InvoiceExporter
   
   def create_qb_invoices(invoices_json)
     invoices_json.each do |inv|
-      @space.invoices.create!(qb_id: @invoice_builder.build(inv).id, cobot_id: inv[:id]) unless @space.invoices.where(cobot_id: inv[:id]).first
+      @space.invoices.create!(qb_id: @invoice_builder.build(inv).id, cobot_id: inv[:id]) unless @space.invoices.first(cobot_id: inv[:id])
     end
   end
 end
