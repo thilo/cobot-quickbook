@@ -5,7 +5,7 @@ class Invoicer
       begin
         Invoicer.new.run_one(space)
       rescue Exception => exception
-         Raven.capture_exception(exception)
+         Raven.capture_exception(exception, extra: {space: space.to_s})
       end
     end
   end
