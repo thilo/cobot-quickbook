@@ -10,7 +10,7 @@ class Invoicer
     end
   end
   
-  def run_one(space, start_date = Date.yesterday, end_date = Date.today)
+  def run_one(space, start_date = 8.days.ago.to_date, end_date = 7.days.ago.to_date)
     user =  space.user
     qb_oauth_client = qb_oauth_client(user)
     oauth_session = get_oauth_session(user.token)
