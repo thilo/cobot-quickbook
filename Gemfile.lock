@@ -105,6 +105,8 @@ GEM
     rack (1.5.2)
     rack-protection (1.5.0)
       rack
+    rack-ssl (1.3.3)
+      rack
     rack-test (0.6.2)
       rack (>= 1.0)
     raindrops (0.11.0)
@@ -164,6 +166,7 @@ DEPENDENCIES
   padrino (= 0.11.2)
   pg
   quickeebooks!
+  rack-ssl
   rack-test
   rake
   rspec
