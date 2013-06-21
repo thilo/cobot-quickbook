@@ -17,11 +17,11 @@
 <% end %>
 
 <% unless current_user.qb_connected? %>
-<p>Please connect your account with quickbooks first</p>
+<p>Nearly done. Please connect your account with your Quickbooks account next.</p>
   <ipp:connectToIntuit></ipp:connectToIntuit>
   <% content_for :js do %>
     intuit.ipp.anywhere.setup({
-        menuProxy: 'http://example.com/myapp/BlueDotMenu',
+        menuProxy: '<%= base_url %>',
         grantUrl: '<%= base_url %>/quickbooks/auth'
     });
   <% end  %>
