@@ -4,5 +4,5 @@ class Space < ActiveRecord::Base
   has_many :line_items
   has_many :invoices
   has_many :customers
-  validates_uniqueness_of :cobot_id, scope: :user_id
+  validates_uniqueness_of :cobot_id
 end
