@@ -27,7 +27,7 @@
   <% end  %>
 <% end %>
 <% if current_user.qb_connected? %>
-  <p id="text">These are spaces you can connect with quickbooks</p>
+  <p id="text">These are spaces you can connect with quickbooks. Enable one.</p>
 
   <div id="spaces"></div>
   <% content_for :js do %>
@@ -54,3 +54,9 @@
 <% if @current_user.spaces.any? %>
 <hr>
 <% end %>
+
+<h3>This is how it works</h3>
+<p>After enabling it for a space  your invoices will be automatically added to Quickbooks 7 days after they are raised. This ensures accuracy by giving you time to make any credits or changes in Cobot before we send the data to Quickbooks.</p>
+    
+<hr>
+
