@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/cobot/quickeebooks.git
-  revision: 133538daf0a9441699cbd1806026e44d348b2b44
+  revision: b57085eba4f3e23fc17aa06be728f3312de70b30
   specs:
     quickeebooks (0.1.10)
       activemodel
@@ -62,7 +62,7 @@ GEM
     multi_json (1.7.7)
     multi_xml (0.5.3)
     multipart-post (1.2.0)
-    nokogiri (1.5.9)
+    nokogiri (1.5.10)
     oauth (0.4.7)
     oauth2 (0.9.1)
       faraday (~> 0.8)
