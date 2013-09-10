@@ -27,7 +27,7 @@
   <% end  %>
 <% end %>
 <% if current_user.qb_connected? %>
-  <p id="text">These are spaces you can connect with quickbooks. Enable one.</p>
+  <p id="text">These are the spaces you can connect with Quickbooks. Please select one.</p>
 
   <div id="spaces"></div>
   <% content_for :js do %>
@@ -37,18 +37,18 @@
 <% end %>
 
 <% if @current_user.spaces.any? %>
-  <p>These are your connected spaces</p>
+  <p>These are your connected spaces:</p>
 <% end %>
 
 <div id="know-spaces">
   <% @current_user.spaces.each do |space| %>
-  
+
   <div class="row">
     <div class="span9">
       <%= space.name %>
     </div>
   </div>
-  <% end %>  
+  <% end %>
 </div>
 
 <% if @current_user.spaces.any? %>
@@ -56,7 +56,6 @@
 <% end %>
 
 <h3>This is how it works</h3>
-<p>After enabling it for a space  your invoices will be automatically added to Quickbooks 7 days after they are raised. This ensures accuracy by giving you time to make any credits or changes in Cobot before we send the data to Quickbooks.</p>
-    
+<p>After enabling Quickbooks for a space, your invoices will be automatically imported 7 days after their creation to Quickbooks. This ensures accuracy by giving you time to make any credits or changes in Cobot before we send the data to Quickbooks.</p>
 <hr>
 
