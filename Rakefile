@@ -5,3 +5,5 @@ require 'active_record'
 PadrinoTasks.use(:database)
 PadrinoTasks.use(:activerecord)
 PadrinoTasks.init
+
+task default: :spec
