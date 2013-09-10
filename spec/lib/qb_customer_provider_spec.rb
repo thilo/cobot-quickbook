@@ -7,11 +7,11 @@ describe QbCustomerProvider do
 
     context "customer is in database" do
       before(:each) do
-        @customer = Customer.new(cobot_id: 'cust')
+        @customer = Customer.new
         space.customers.stub(find_by_name: @customer)
       end
 
-      it "returns a customer for the " do
+      it "returns a customer for the qb_id" do
         @customer.qb_id = 12
         customer = provider.get({name: 'joe doe'})
         customer.should == @customer
