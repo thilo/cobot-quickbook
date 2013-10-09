@@ -1,7 +1,3 @@
-= info
+# info
 
-application to show plans in facebook so that potential coworkers can see the services and prices the space offers on the facebook page.
-
-= oauth
-
-https://www.cobot.me/oauth2_clients/a633ce63a33fe9002dda9dd75219d3bb
+A small application to import data from cobot into [Quickbooks](http://quickbooks.intuit.com/). It takes care of creating products from your plans and resources as well as imports your customers into Quickbooks. Invoiced items will be added into your account with a delay of 7 days to allow corrections.
