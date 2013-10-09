@@ -8,7 +8,7 @@ require File.expand_path("../config/boot.rb", __FILE__)
 
 use Rack::Deflater
 use Raven::Rack
-if PADRINO_ENV="production"
+if ENV['RACK_ENV'] == "production"
   use Rack::SSL
 end
 
