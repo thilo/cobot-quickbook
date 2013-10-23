@@ -14,7 +14,7 @@ def xml_response(root, attributes = {})
     sync_token: 0,
     meta_data: {
       create_time: '2010-09-13T04:11:06-07:00',
-      last_update_time: '2010-09-13T04:11:06-07:00'
+      last_updated_time: '2010-09-13T04:11:06-07:00'
     }
   }
   ns_root = "<#{xml_root} xmlns=\"http://www.intuit.com/sb/cdm/v2\" xmlns:ns2=\"http://www.intuit.com/sb/cdm/qbopayroll/v1\" xmlns:ns3=\"http://www.intuit.com/sb/cdm/qbo\">"

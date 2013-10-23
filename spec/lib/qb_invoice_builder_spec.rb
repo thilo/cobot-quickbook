@@ -16,7 +16,7 @@ describe QbInvoiceBuilder do
     context "creates a quickbooks invoice" do
       it "with items" do
         item_provider.stub(get: LineItem.new(qb_id: 32))
-        
+
         stub_request(:post, /\/resource\/invoice\/v2\/.+/).with(body:
           /#{xml_fragment(:line,
             {
@@ -38,12 +38,12 @@ describe QbInvoiceBuilder do
 
         builder.build(invoice_hash)
       end
-      
+
       it "with address data" do
         stub_request(:post, /\/resource\/invoice\/v2\/.+/).with(body:
           /#{xml_fragment(:bill_addr,
-            line1: 'joe doe',
-            line2: 'joe inc.',
+            line1: 'joe inc.',
+            line2: 'joe doe',
             line3: '1 broadway',
             city: 'atlantis',
             country: 'ocean',
@@ -54,9 +54,9 @@ describe QbInvoiceBuilder do
 
         builder.build(invoice_hash)
       end
-      
+
     end
-    
+
 
     it "returns the quickbooks invoice object" do
       stub_request(:post, /\/resource\/invoice\/v2\/.+/).to_return(body: xml_response(:invoice, {id: 23}))
@@ -103,7 +103,7 @@ describe QbInvoiceBuilder do
           "tax_rate" => "20.0",
           "tag" => "membership",
           "tag_name" => "monthly rent"
-          
+
       },
       {
           "amount" => "20.0",
