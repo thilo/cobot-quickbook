@@ -21,8 +21,8 @@ private
     customer = Quickeebooks::Online::Model::Customer.new
     address = customer.address = Quickeebooks::Online::Model::Address.new
     customer.name = customer_name(customer_hash)
-    address.line1 = customer_hash[:name]
-    address.line2 = customer_hash[:company]
+    address.line1 = customer_hash[:company]
+    address.line2 = customer_hash[:name]
     address.line3 = customer_hash[:address]
     address.city = customer_hash[:city]
     address.postal_code = customer_hash[:post_code]

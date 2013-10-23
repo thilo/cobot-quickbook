@@ -16,8 +16,8 @@ class QbInvoiceBuilder
     header.customer_id = Quickeebooks::Online::Model::Id.new(customer.qb_id)
 
     recipent = header.billing_address = Quickeebooks::Online::Model::Address.new
-    recipent.line1 = inv[:address][:name]
-    recipent.line2 = inv[:address][:company]
+    recipent.line1 = inv[:address][:company]
+    recipent.line2 = inv[:address][:name]
     recipent.line3 = inv[:address][:address]
     recipent.city = inv[:address][:city]
     recipent.postal_code = inv[:address][:post_code]
