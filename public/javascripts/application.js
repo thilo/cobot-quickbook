@@ -1,9 +1,37 @@
 $(function(){
+  $('.pause-sync-link').bind('click', function(e){
+    e.preventDefault();
+    var $this = $(this);
+    var $row = $this.closest('.row');
+    $this.fadeOut();
+    $.ajax({
+      type: 'DELETE',
+      url: this.href,
+      success: function(){
+        $row.fadeOut();
+      }
+    });
+  });
+
+  $('.resume-sync-link').bind('click', function(e){
+    e.preventDefault();
+    var $this = $(this);
+    var $row = $this.closest('.row');
+    $this.fadeOut();
+    $.ajax({
+      type: 'PUT',
+      url: this.href,
+      success: function(){
+        $row.fadeOut();
+      }
+    });
+  });
+
   $('.add-space-link').bind('click', function(){
     var data = $(this).data();
     var $form = $(this).closest('form');
     console.log ($(this).closest('.qb-account-ref'));
-    
+
     data['qb_account_ref'] = $form.find('.qb-account-ref').val();
     console.log(data);
     $.post('/spaces',{space: data}, function(respData, status){

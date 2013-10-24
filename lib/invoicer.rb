@@ -1,7 +1,7 @@
 class Invoicer
   include AuthHelpers
   def self.run
-    Space.all.each do |space|
+    Space.enabled.each do |space|
       begin
         Invoicer.new.run_one(space)
       rescue OAuth::Problem => e
