@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   validates_presence_of :cobot_id, :token
-  has_many :spaces
+  has_many :spaces, dependent: :destroy
 
   def self.find_or_create_for_cobot_id(cobot_id, attributes = {})
     user = User.find_by_cobot_id(cobot_id)
