@@ -45,7 +45,7 @@
 
   <div class="row">
     <div class="span9">
-      <%= space.name %> <%= link_to 'Pause syncing', "/spaces/#{space.id}", class: "pause-sync-link" %>
+      <%= space.name %> <%= link_to 'Pause syncing', "/spaces/#{space.id}", class: "pause-sync-link btn btn-small btn-primary" %>
     </div>
   </div>
   <% end %>
@@ -58,7 +58,7 @@
     <% @current_user.spaces.disabled.each do |space| %>
     <div class="row">
       <div class="span9">
-        <%= space.name %> <%= space.name %> <%= link_to 'Resume syncing', "/spaces/#{space.id}", class: "resume-sync-link" %>
+        <%= space.name %> <%= space.name %> <%= link_to 'Resume syncing', "/spaces/#{space.id}", class: "resume-sync-link btn btn-small btn-primary" %>
       </div>
     </div>
     <% end %>
