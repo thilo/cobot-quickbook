@@ -101,7 +101,7 @@ describe QbCustomerProvider do
         qb_customer_api.should have_been_requested
       end
 
-      it "stores the cobot_id, qb_id and name in the db" do
+      it "stores the cobot_membership_id, qb_id and name in the db" do
         qb_customer_hash[:id] = 13
         stub_request(:post, /\/resource\/customer\/v2\/.+/,).to_return(body:
           xml_response(:customer, qb_customer_hash)
@@ -112,7 +112,7 @@ describe QbCustomerProvider do
         customer = space.customers.first
         customer.qb_id.should == 13
         customer.name.should == 'stub_hash'
-        customer.cobot_id.should == 'cobot_id'
+        customer.cobot_membership_id.should == 'cobot_id'
         customer.should be_persisted
       end
     end
