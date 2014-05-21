@@ -1,6 +1,6 @@
 # info
 
-A small application to import data from cobot into [Quickbooks](http://quickbooks.intuit.com/). It takes care of creating products from your plans and resources as well as imports your customers into Quickbooks. Invoiced items will be added into your account with a delay of 7 days to allow corrections.
+A small application to import data from [Cobot](http://cobot.me) into [Quickbooks](http://quickbooks.intuit.com/). It takes care of creating products from your plans and resources as well as imports your customers into Quickbooks. Invoiced items will be added into your QB account with a delay of 7 days to allow corrections.
 
 ## Features:
 
@@ -9,4 +9,9 @@ A small application to import data from cobot into [Quickbooks](http://quickbook
 * Updating changes on cobot memberships to Quickbooks customer
 * Ability to pause and resume syncing for a space
 
-You can see it in action here: https://quickbooks.apps.cobot.me/
+
+## Know Issues
+
+* Only allow to set it to one income account per space
+* Error when multiple users try to setup the same account
+* Sometimes the QB API throws errors that the app does not handle well
